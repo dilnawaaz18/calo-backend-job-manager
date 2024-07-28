@@ -5,7 +5,7 @@ const application = express();
 const PORT = 3001;
 
 
-// Enable CORS for all origins (not recommended for production)
+// enabled cors
 application.use(cors());
 application.use(json());
 application.use('/jobs', jobRoutes)

@@ -11,7 +11,11 @@ const __dirname = path.dirname(__filename);
 
 const jobsFilePath = path.join(__dirname, '..', 'jobs.json');
 
+
+//unsplash access key, saved in env
 const accessKEy = process.env.UNSPLASH_KEY
+
+
 export const readJobs = () => {
     if (!fs.existsSync(jobsFilePath)) {
         fs.writeFileSync(jobsFilePath, JSON.stringify([]));
@@ -42,6 +46,8 @@ export const readJobById = (jobId) => {
     return jobs.find(job => job.id === jobId);
 }
 
+
+//method to delay the job creation
 const simulateJobProcessing = (jobId) => {
 
     // Calculate a random delay between 5 seconds and 5 minutes
@@ -60,8 +66,8 @@ const simulateJobProcessing = (jobId) => {
                     },
                     params: {
                         query: 'food',
-                        page: Math.floor(Math.random() * 100) + 1, // Random image between 1 and 100
-                        per_page: 1, // Fetch one image
+                        page: Math.floor(Math.random() * 100) + 1,
+                        per_page: 1, // fetch only sinegle image
                     },
                 });
                 if (response.data.results.length > 0) {

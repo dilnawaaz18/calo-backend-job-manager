@@ -8,3 +8,4 @@ export default class JobModel {
         this.result = null
     }
 }
+// basic class for job
